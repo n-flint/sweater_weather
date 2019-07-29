@@ -14,6 +14,4 @@ class GeocodeService
     response = Faraday.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{@location}&key=#{ENV['GOOGLE_API_KEY']}")
     data = JSON.parse(response.body)
   end
-
-
 end
