@@ -3,7 +3,6 @@ class ForecastFacade
   def initialize(location)
     @id = 1
     @location = location
-    weather
   end
 
   def coordinates
@@ -13,7 +12,7 @@ class ForecastFacade
 
   def weather
     @darksky_service = DarkskyService.new(coordinates)
-    @darksky_service.get_weather
+    Forecast.new(@darksky_service.get_weather)
   end
 
 
