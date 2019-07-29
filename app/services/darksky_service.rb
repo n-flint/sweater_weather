@@ -7,12 +7,17 @@ class DarkskyService
   end
 
   def get_weather
-    service
-
+    test = JSON.parse(response.body)
   end
 
   private
-  def service
-    
+  def conn
+    response = Faraday.new("https://api.darksky.net/forecast/#{ENV['DARKSKY_API_KEY']}/") do |f|
+      f.adapter Faraday.default_adapter
+    end
+  end
+
+  def response 
+    conn.get("#{@latitude},#{@longitude}")
   end
 end
