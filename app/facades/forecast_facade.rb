@@ -3,13 +3,17 @@ class ForecastFacade
   def initialize(location)
     @id = 1
     @location = location
-    coordinantes
+    weather
   end
 
-  def coordinantes
-    @service = GeocodeService.new(@location)
-    @service.get_coordinates
-    require 'pry'; binding.pry
+  def coordinates
+    @geocode_service = GeocodeService.new(@location)
+    @geocode_service.get_coordinates
+  end
+
+  def weather
+    @darksky_service = DarkskyService.new(coordinates)
+    @darksky_service.get_weather
   end
 
 
