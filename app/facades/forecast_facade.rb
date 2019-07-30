@@ -1,8 +1,10 @@
 class ForecastFacade
+  attr_reader :id
 
   def initialize(location)
     @id = 1
     @location = location
+    weather
   end
 
   def coordinates
@@ -11,9 +13,24 @@ class ForecastFacade
   end
 
   def weather
-    @darksky_service = DarkskyService.new(coordinates)
-    Forecast.new(@darksky_service.get_weather)
+    @darksky_service ||= DarkskyService.new(coordinates)
+    @darksky_service.get_weather
   end
 
+  def current_weather
+    CurrentWeather.new(weather['currently'])
+  end
 
+  def hourly_weather
+      weather['hourly']['data'].map do |hour|
+      HourlyWeather.new(hour)
+    end
+  end
+
+  def daily_weather
+      weather['daily']['data'].map do |day|
+        DailyWeather.new(day)
+      end
+
+  end
 end
