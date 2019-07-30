@@ -8,7 +8,6 @@ class GiphyService
     response.first[1][0]['images']['original']['url']
   end
     
-
   private
 
   def conn
