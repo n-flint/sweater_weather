@@ -4,11 +4,10 @@ class ForecastFacade
   def initialize(location)
     @id = 1
     @location = location
-    # weather
   end
 
   def coordinates
-    @geocode_service = GeocodeService.new(@location)
+    @geocode_service ||= GeocodeService.new(@location)
     @geocode_service.get_coordinates
   end
 
@@ -34,7 +33,7 @@ class ForecastFacade
   end
 
   def image
-    @flickr_service = FlickrService.new(@location)
+    @flickr_service ||= FlickrService.new(@location)
     FlickrImage.new(@flickr_service.get_image)
   end
 end
