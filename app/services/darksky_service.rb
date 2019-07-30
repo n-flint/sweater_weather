@@ -7,7 +7,7 @@ class DarkskyService
   end
 
   def get_weather
-    test = JSON.parse(response.body)
+    JSON.parse(response.body)
   end
 
   private
