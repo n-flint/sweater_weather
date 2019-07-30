@@ -15,8 +15,7 @@ class UserFacade
   private
 
   def create_user(key)
-    User.create(emal: user_data['email'], password: user_data['password'], api_key: key)
+    user = User.create(email: @user_data['email'], password: @user_data['password'], api_key: key)
+    user.api_key
   end
-
-
 end
