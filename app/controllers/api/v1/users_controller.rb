@@ -3,8 +3,7 @@ class Api::V1::UsersController < ApplicationController
 
   def create
     facade = UserFacade.new(user_params)
-
-    # render json: BackgroundSerializer.new(forecast)
+    render json: UserSerializer.new(facade)
   end
 
 
