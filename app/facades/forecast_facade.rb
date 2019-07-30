@@ -35,7 +35,6 @@ class ForecastFacade
 
   def image
     @flickr_service = FlickrService.new(@location)
-
     FlickrImage.new(@flickr_service.get_image)
   end
 end
