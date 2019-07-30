@@ -1,6 +1,5 @@
 class DarkskyService
 
-
   def initialize(coordinates)
     @latitude = coordinates['lat']
     @longitude = coordinates['lng']
