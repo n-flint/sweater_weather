@@ -14,6 +14,6 @@ RSpec.describe 'Account Creation Request', type: :request do
     key = JSON.parse(response.body)
 
     expect(response.code).to eq('201')
-    expect(key['data']['attributes']['key']).to be_a(String)
+    expect(key['data']['attributes']['api_key']).to be_a(String)
   end
 end
