@@ -7,7 +7,9 @@ class DarkskyService
   end
 
   def get_weather
-    JSON.parse(response.body)
+    Rails.cache.fetch('get_weather', expires_in: 2.hours) do
+      JSON.parse(response.body)
+    end
   end
 
   private
