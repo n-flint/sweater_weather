@@ -17,8 +17,8 @@ RSpec.describe 'Road T\rip Request', type: :request do
     expect(response.code).to eq('200')
     expect(weather_data).to have_key('data')
     expect(weather_data['data']['attributes']['travel_time']).to be_a(String)
-    expect(weather_data['data']['attributes']['tempeature']).to be_a(Numeric)
-    expect(weather_data['data']['attributes']['summary']).to be_a(String)
+    expect(weather_data['data']['attributes']['forecast']['temperature']).to be_a(Numeric)
+    expect(weather_data['data']['attributes']['forecast']['summary']).to be_a(String)
   end
 end
 
