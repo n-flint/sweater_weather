@@ -13,7 +13,7 @@ class CurrentWeather
     @summary = data['summary']
     @icon = data['icon']
     @temperature = data['temperature']
-    @apparent_temperature = data['apparentTemperature']
+    @apparent_temperature = data['apparent_temperature']
     @humidity = data['humidity']
   end
 
