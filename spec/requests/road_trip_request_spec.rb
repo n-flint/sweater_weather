@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Road T\rip Request', type: :request do
-  xit 'can receive weather for hour of arrival at destination' do
-    user = User.create!(email: 'whatever@example.com', password: 'password', password_confirmation: 'password', api_key: 'test-api-key')
+  it 'can receive weather for hour of arrival at destination' do
+    user = User.create!(email: 'whatever@example.com', password: 'password', password_confirmation: 'password', api_key: 'jgn983hy48thw9begh98h4539h4')
     roadtrip_json = {
                     "origin": "Denver,CO", 
                     "destination": "Pueblo,CO",
@@ -16,14 +16,9 @@ RSpec.describe 'Road T\rip Request', type: :request do
 
     expect(response.code).to eq('200')
     expect(weather_data).to have_key('data')
-    expect(weather_data['data']['attributes']['time']).to be_a(String)
-    expect(weather_data['data']['attributes']['summary']).to be_a(String)
-    expect(weather_data['data']['attributes']['icon']).to be_a(String)
+    expect(weather_data['data']['attributes']['travel_time']).to be_a(String)
     expect(weather_data['data']['attributes']['tempeature']).to be_a(Numeric)
-    expect(weather_data['data']['attributes']['precip_robability']).to be_a(Float)
-    expect(weather_data['data']['attributes']['precip_type']).to be_a(String)
-    expect(weather_data['data']['attributes']['temperature_high']).to be_a(String)
-    expect(weather_data['data']['attributes']['temperature_low']).to be_a(String)
+    expect(weather_data['data']['attributes']['summary']).to be_a(String)
   end
 end
 
