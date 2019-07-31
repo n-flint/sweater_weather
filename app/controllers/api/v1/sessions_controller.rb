@@ -7,7 +7,9 @@ class Api::V1::SessionsController < ApplicationController
       session[:user_id] = facade.user_id
       render json: SessionsSerializer.new(facade)
     else
-      render status: 404
+      render status: 404, json: {
+        error: 'User Not Found'
+      }
     end
   end
 

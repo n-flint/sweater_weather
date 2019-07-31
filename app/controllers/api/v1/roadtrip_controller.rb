@@ -1,10 +1,12 @@
 class Api::V1::RoadtripController < ApplicationController
 
   def show
-    if User.find_by(api_key: roadtrip_params['api_key'])
+    if roadtrip_params['api_key'].length == 20
+      User.find_by(api_key: roadtrip_params['api_key'])
       facade = RoadtripFacade.new(roadtrip_params)
       render json: RoadtripSerializer.new(facade)
     else
+      require 'pry'; binding.pry
       render status: 404
     end
   end
