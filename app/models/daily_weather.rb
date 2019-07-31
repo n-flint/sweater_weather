@@ -15,7 +15,7 @@ class DailyWeather
     @summary = data['summary']
     @icon = data['icon']
     @temperature = data['temperature']
-    @precip_robability = data['precipProbability']
+    @precip_probability = data['precipProbability']
     @precip_type = data['precipType']
     @temperature_high = data['temperatureHigh']
     @temperature_low = data['temperatureLow']
