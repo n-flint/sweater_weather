@@ -4,7 +4,6 @@ class ForecastFacade
   def initialize(location)
     @id = 1
     @location = location
-    # weather
   end
 
   def coordinates
