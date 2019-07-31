@@ -13,5 +13,4 @@ class HourlyWeather
     @temperature = data['temperature']
     @summary = data['summary']
   end
-
 end
