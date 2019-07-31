@@ -31,3 +31,6 @@
 
 # Ignore simplecov coverage
 /coverage
+
+# Ignore VCR cassettes
+/fixtures
