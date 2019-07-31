@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'Weather Request', type: :request do
   it 'can retrieve the weather for a city' do
+    VCR.use_cassette('weather') do
+
     get '/api/v1/forecast?location=denver,co'
 
     weather_data = JSON.parse(response.body)
@@ -16,9 +18,6 @@ RSpec.describe 'Weather Request', type: :request do
 
     # expect(weather_data['data']['attributes']['current_weather']['time']).to be_a(Integer)
     # expect(weather_data['data']['attributes']['current_weather']['time']).to be_a(Integer)
+    end
   end
 end
-#current_weather summary
-#current_weather tempeture
-#current_weather location
-#details symbol
