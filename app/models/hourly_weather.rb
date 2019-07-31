@@ -5,7 +5,6 @@ class HourlyWeather
               :temperature,
               :summary
 
-
   def initialize(data)
     @id = 1
     @time = data['time']
