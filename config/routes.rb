@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       get '/backgrounds', to: 'background#show'
       resources :users, only: [:create]
       resources :sessions, only: [:create]
+      post '/road_trip', to: 'roadtrip#show'
     end
   end
 end

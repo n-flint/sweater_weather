@@ -2,7 +2,8 @@ class HourlyWeather
     attr_reader :id,
               :time,
               :icon,
-              :temperature
+              :temperature,
+              :summary
 
 
   def initialize(data)
@@ -10,6 +11,6 @@ class HourlyWeather
     @time = data['time']
     @icon = data['icon']
     @temperature = data['temperature']
+    @summary = data['summary']
   end
-
 end

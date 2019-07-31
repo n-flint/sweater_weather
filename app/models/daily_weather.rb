@@ -19,7 +19,5 @@ class DailyWeather
     @precip_type = data['precipType']
     @temperature_high = data['temperatureHigh']
     @temperature_low = data['temperatureLow']
-
   end
-
 end
