@@ -16,5 +16,4 @@ class CurrentWeather
     @apparent_temperature = data['apparent_temperature']
     @humidity = data['humidity']
   end
-
 end
