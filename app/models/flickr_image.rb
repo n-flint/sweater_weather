@@ -5,5 +5,4 @@ class FlickrImage
     @id = image_data['id']
     @image_data = image_data
   end
-
 end
