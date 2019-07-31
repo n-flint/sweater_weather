@@ -4,11 +4,10 @@ class ForecastFacade
   def initialize(location)
     @id = 1
     @location = location
-    # weather
   end
 
   def coordinates
-    @geocode_service = GeocodeService.new(@location)
+    @geocode_service ||= GeocodeService.new(@location)
     @geocode_service.get_coordinates
   end
 
@@ -34,8 +33,12 @@ class ForecastFacade
   end
 
   def image
-    @flickr_service = FlickrService.new(@location)
+    @flickr_service ||= FlickrService.new(@location)
 
-    FlickrImage.new(@flickr_service.get_image)
+    FlickrImage.new(@flickr_service.image_data)
+  end
+
+  def link 
+    "https://farm#{@flickr_service.image_data['farm']}.staticflickr.com/#{@flickr_service.image_data['server']}/#{@flickr_service.image_data['id']}_#{@flickr_service.image_data['secret']}.jpg"
   end
 end

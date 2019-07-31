@@ -4,7 +4,7 @@ class FlickrService
     @location = location
   end
 
-  def get_image
+  def image_data
     JSON.parse(conn)['photos']['photo'][0]
   end
 

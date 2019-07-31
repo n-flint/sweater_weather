@@ -4,7 +4,7 @@ class DailyWeather
               :summary,
               :icon,
               :temperature,
-              :precip_robability,
+              :precip_probability,
               :precip_type,
               :temperature_high,
               :temperature_low

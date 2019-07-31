@@ -29,6 +29,6 @@ class RoadtripFacade
   end
 
   def roadtrip_service
-    @roadtrip_service = RoadtripService.new(@origin, @destination)
+    @roadtrip_service ||= RoadtripService.new(@origin, @destination)
   end
 end
