@@ -6,8 +6,9 @@ class Api::V1::RoadtripController < ApplicationController
       facade = RoadtripFacade.new(roadtrip_params)
       render json: RoadtripSerializer.new(facade)
     else
-      require 'pry'; binding.pry
-      render status: 404
+      render status: 404, json: {
+        error: 'Invalid Api Key'
+      }
     end
   end
 
